@@ -19,9 +19,17 @@ class Footer extends Component {
 }
 
 class BaseLayout extends Component {
+  // constructor(props) {
+  //   super(props)
+  // }
   render() {
     return (
-      <div>This should house Header and Footer components and be able to house any children components.</div>
+      <div className="base">
+        <Header />
+          {this.props.children}
+        <Footer />
+
+      </div>
     );
   }
 }
@@ -94,10 +102,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <BaseLayout></BaseLayout>
-        <Header />
-        <ParentComponent />
-        <Footer />
+        <BaseLayout>
+          <ParentComponent />
+        </BaseLayout>
       </div>
     );
   }
