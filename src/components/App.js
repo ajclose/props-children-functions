@@ -19,9 +19,6 @@ class Footer extends Component {
 }
 
 class BaseLayout extends Component {
-  // constructor(props) {
-  //   super(props)
-  // }
   render() {
     return (
       <div className="base">
@@ -40,7 +37,8 @@ class ParentComponent extends Component {
 
     //we are really in a *bind* here.... :)
     //fix it...
-
+    this.handleInput = this.handleInput.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
     //state lives here
     this.state = {
       whatToSay: "",
@@ -69,8 +67,8 @@ class ParentComponent extends Component {
           <input onChange={this.handleInput} type="text" placeholder="Say It, Don't Spray It!" />
         </div>
         <div>
-          <ChildComponent onClick={"FILL_ME_IN"}/>
-          <DisplayComponent sayWhat={"FILL_ME_IN"} />
+          <ChildComponent onClick={this.handleSubmit}/>
+          <DisplayComponent sayWhat={this.state.whatToSay} />
         </div>
       </div>
     );
