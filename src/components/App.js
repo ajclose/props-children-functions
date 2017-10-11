@@ -48,7 +48,7 @@ class ParentComponent extends Component {
   handleInput(e) {
     e.preventDefault();
     //set the state on input change
-    this.setState({whatToSay: this.state.whatToSay});
+    this.setState({whatToSay: e.target.value});
   }
   handleSubmit(e) {
     e.preventDefault();
@@ -68,7 +68,7 @@ class ParentComponent extends Component {
         </div>
         <div>
           <ChildComponent onClick={this.handleSubmit}/>
-          <DisplayComponent sayWhat={this.state.whatToSay} />
+          <DisplayComponent sayWhat={this.state.whatWasSaid} />
         </div>
       </div>
     );
